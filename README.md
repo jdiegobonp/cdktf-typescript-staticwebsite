@@ -38,9 +38,9 @@ aws s3 cp ./build/ s3://<bucket name>/ --recursive
 
 **Clean Up**
 
-To delete the resources deployed in the above steps execute the following steps:
+To remove the resources deployed in the above steps execute the following steps:
 
-1. Go to CDKTF folder and execute the following command:
+1. Go to the CDKTF folder and execute the following command:
 
 ```sh
 aws s3 rm s3://<bucket name> --recursive
