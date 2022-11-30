@@ -1,7 +1,8 @@
 // Copyright (c) HashiCorp, Inc
 // SPDX-License-Identifier: MPL-2.0
 import "cdktf/lib/testing/adapters/jest"; // Load types for expect matchers
-// import { Testing } from "cdktf";
+import { Testing } from "cdktf";
+import "./main.ts" from "MyStack"
 
 describe("My CDKTF Application", () => {
   // The tests below are example tests, you can find more information at
@@ -72,18 +73,18 @@ describe("My CDKTF Application", () => {
   //     expect(Testing.fullSynth(app)).toBeValidTerraform();
   //   });
 
-  //   it("check if this can be planned", () => {
-  //     const app = Testing.app();
-  //     const stack = new TerraformStack(app, "test");
+     it("check if this can be planned", () => {
+       const app = Testing.app();
+       const stack = new MyStack(app, "test");
 
-  //     new TestDataSource(stack, "test-data-source", {
-  //       name: "foo",
-  //     });
+       new TestDataSource(stack, "test-data-source", {
+         name: "foo",
+       });
 
-  //     new TestResource(stack, "test-resource", {
-  //       name: "bar",
-  //     });
-  //     expect(Testing.fullSynth(app)).toPlanSuccessfully();
-  //   });
-  // });
+       new TestResource(stack, "test-resource", {
+         name: "bar",
+       });
+       expect(Testing.fullSynth(app)).toPlanSuccessfully();
+     });
+
 });

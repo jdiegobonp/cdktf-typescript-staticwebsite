@@ -11,9 +11,7 @@ class MyStack extends TerraformStack {
       region: "us-east-1"
     });
 
-    const identifier = Math.floor(Math.random() * (9999999 - 1000000) + 1000000) 
-    
-    new StaticWebSite(this, "bucket-staticwebsite-poc-" + identifier);
+    new StaticWebSite(this, "bucket-staticwebsite-poc-1234");
   }
 }
 

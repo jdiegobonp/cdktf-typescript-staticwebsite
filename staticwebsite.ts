@@ -1,10 +1,6 @@
 import { Construct } from "constructs";
 import { TerraformOutput } from "cdktf";
-import * as path from 'path';
-import * as glob from 'glob';
-import * as mime from 'mime-types';
 import { S3Bucket } from "./.gen/providers/aws/s3-bucket";
-import { S3Object } from "./.gen/providers/aws/s3-object";
 import { S3BucketPolicy } from "./.gen/providers/aws/s3-bucket-policy";
 import { S3BucketCorsConfiguration } from "./.gen/providers/aws/s3-bucket-cors-configuration";
 import { S3BucketAcl}  from "./.gen/providers/aws/s3-bucket-acl";
@@ -35,18 +31,7 @@ export class StaticWebSite extends Construct {
         },
     });
 
-    /* Add HTML file into website bucket */
-    const files = glob.sync('./resources/**', { absolute: false, nodir: true });
-    for (const file of files) {
-      new S3Object(this, `website_file_configuration_${path.parse(file).base}`, {
-        dependsOn: [this.website_bucket],
-        key: path.parse(file).base,
-        bucket: this.website_bucket.bucket,
-        source: path.resolve(file),
-        contentType: mime.contentType(path.extname(file)) || undefined,
-      });
-    }
-
+  
     /* Attach Allow Access Policy */
     new S3BucketPolicy(this, 'website-policy',{
         bucket: this.website_bucket.bucket,
