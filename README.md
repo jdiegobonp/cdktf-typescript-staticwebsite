@@ -37,6 +37,7 @@ aws s3 cp ./build/ s3://<bucket name>/ --recursive
 5. Open a web browser and paste the endpoint in the URL (identified above).
 
 **Clean Up**
+
 To delete the resources deployed in the above steps execute the following steps:
 
 1. Go to CDKTF folder and execute the following command:
