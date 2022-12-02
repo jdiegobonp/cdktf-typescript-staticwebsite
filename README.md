@@ -11,7 +11,7 @@ The AWS S3 is a useful service that is able to configure as a Static WebSite to 
 - AWS credentials where you want to deploy this static website with sufficient permissions in S3 and IAM.
 - Configure the AWS provider for terraform creating the environment variables [Link](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
-**Installation**
+## Installation
 
 1. Clone this repository and go to the root folder.
 2. Execute the following commands. 
@@ -36,7 +36,7 @@ aws s3 cp ./build/ s3://<bucket name>/ --recursive
 4. Check the stack outputs and identify the endpoint and copy it.
 5. Open a web browser and paste the endpoint in the URL (identified above).
 
-**Clean Up**
+## Clean Up
 
 To remove the resources deployed in the above steps execute the following steps:
 
